@@ -17,7 +17,7 @@ We apply transfer learning on two Visual Transformers: </br>
 By using a mixed-precision approach, we can reduce compute cost while at the same time keep precision high where it matters most. </br>
 Weights for the Random Sampler are computed at FP64 precision. All model weights are stored in FP32 precision. Gradient scaling as well as optimizer steps are also conducted with FP32 precision. Only forward passing and loss computation run in the lower FP16 precision to reduce compute cost. </br></br>
 
-Both models reach a Macro-F1 value >0.8 and validation accuracy of >0.8. Single class performance is as follows: </br></br>
+Both models reach near-state-of-the-art performance with a Macro-F1 value >0.8 and validation accuracy of >0.8. Single class performance is as follows: </br></br>
 <strong>SWIN-Base:</strong>
 | Class        | Precision | Recall | F1    |
 |:-------------|:---------:|:------:|:-----:|
