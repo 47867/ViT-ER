@@ -2,14 +2,14 @@
 Visual Transformer for Emotion Recognition (4-class) </br></br>
 
 We introduce two machine learning models for visual emotion recognition. Using the CAER-S dataset by Jiyoung et al. (2019) we predict four emotions: </br>
-- Optimistic
-- Pessimistic
-- Hostile
-- Neutral
+- Optimistic (happy)
+- Pessimistic (sad + fear)
+- Hostile (anger + disgust)
+- Neutral (neutral)
 
 We apply transfer learning on two Visual Transformers: </br>
 - DeiT-Base-patch16-224 (86M) by Touvron et al. (2021) at Meta, pre-trained on ImageNet-1k
-- SWIN-Base-patch4-window7-224 by Liu et al. (2021) at Microsoft, pre-trained on ImageNet-1k
+- SWIN-Base-patch4-window7-224 (86M) by Liu et al. (2021) at Microsoft, pre-trained on ImageNet-1k
 
 </br>
 
@@ -18,18 +18,26 @@ Weights for the Random Sampler are computed at FP64 precision. All model weights
 
 Both models reach a Macro-F1 value >0.8 and validation accuracy of >0.8. Single class performance is as follows: </br>
 <strong>SWIN-Base:</strong>
-|Class|Precision||Recall|F1|
-|:-----|:--:|:--------------------:|:--:|
-|Optimistic|0.820 | 0.845 | 0.832 |
-|Pessimistic|0.925 | 0.869 | 0.896 |
-|Hostile|0.882 | 0.853 | 0.867 |
-|Neutral|0.671 | 0.778 | 0.721 |
+| Class        | Precision | Recall | F1    |
+|:-------------|:---------:|:------:|:-----:|
+| Optimistic   | 0.820     | 0.845  | 0.832 |
+| Pessimistic  | 0.925     | 0.869  | 0.896 |
+| Hostile      | 0.882     | 0.853  | 0.867 |
+| Neutral      | 0.671     | 0.778  | 0.721 |
+
+Macro-F1: 0.8291, validation accuracy: 0.8442, validation loss: 0.4292 (after 32 epochs)
+</br></br>
 
 <strong>DeiT-Base:</strong>
-- Optimistic:
-- Pessimistic:
-- Hostile:
-- Neutral:
+| Class        | Precision | Recall | F1    |
+|:-------------|:---------:|:------:|:-----:|
+| Optimistic   | 0.795     | 0.810  | 0.802 |
+| Pessimistic  | 0.906     | 0.864  | 0.884 |
+| Hostile      | 0.882     | 0.802  | 0.840 |
+| Neutral      | 0.612     | 0.776  | 0.689 |
+
+Macro-F1: 0.8040, validation accuracy: 0.8198, validation loss: 0.4919 (after 32 epochs)
+</br></br>
 
 <strong>Hardware information:</strong> </br>
 Both models are trained on a single NVIDIA Blackwell GB203 GPU with 16 GiB of VRAM (GDDR7, non-ECC, 28 Gigabit/s over 256bit-bus = 896 GiB/s transfer speed). CPU-side is handled by a 12th Gen. (Alder Lake) Intel Core i5-12600K supported by 64 GiB of DDR4-DRAM (non-ECC) running with JEDEC specification for 3.200 MT/s at CL16-20-20-38 at 1.35V. </br></br>
