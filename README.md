@@ -39,12 +39,19 @@ Macro-F1: 0.8291, validation accuracy: 0.8442, validation loss: 0.4292 (after 32
 
 Macro-F1: 0.8040, validation accuracy: 0.8198, validation loss: 0.4919 (after 32 epochs)
 </br></br>
+SWIN-Base consistently outperforms DeiT-Base, albeit by only a few points. 
+</br></br>
 
 <strong>Hardware information:</strong> </br>
-Both models are trained on a single NVIDIA Blackwell GB203 GPU with 16 GiB of VRAM (GDDR7, non-ECC, 28 Gigabit/s over 256bit-bus = 896 GiB/s transfer speed). CPU-side is handled by a 12th Gen. (Alder Lake) Intel Core i5-12600K supported by 64 GiB of DDR4-DRAM (non-ECC) running with JEDEC specification for 3.200 MT/s at CL16-20-20-38 at 1.35V. </br></br>
-Our hardware setup shows that this task can be completed on mid-range consumer hardware, making it more accessible to researchers with a smaller budget and no access to datacenter-class hardware. </br>
+Both models are trained on a single NVIDIA Blackwell GB203 GPU with 16 GiB of VRAM (GDDR7, non-ECC, 28 Gigabit/s over 256bit-bus = 896 GiB/s transfer speed). CPU-side is handled by a 12th Gen. (Alder Lake) Intel Core i5-12600K supported by 64 GiB of DDR4-DRAM (non-ECC) running with JEDEC specification for 3.200 MT/s at CL16-20-20-38 at 1.35V. 
+</br></br>
+Our hardware setup shows that this task can be completed on mid-range consumer hardware, making it more accessible to researchers with a smaller budget and no access to datacenter-class hardware. 
+</br></br>
+At batch-size of 64, training takes around 1 hour for DeiT-Base (approx. 7 batches per second) and 1.5 hours for SWIN-Base (approx. 5.2 batches per second). DeiT-Base needs approx. 6.0 GiB of VRAM while SWIN-Base needs approx. 11.4 GiB of VRAM. Training should therefore be possible on a GPU with 12 GiB of VRAM. We still recommend a GPU with at least 16 GiB of VRAM.
+</br></br>
 This allows us to perform both training and inference entirely on local hardware. Data privacy and 100% control over all processes are thus guaranteed at all times. </br>
-All electrical power used for training and inference stems from renewable energy sources, keeping environmental impact as low as possible.</br></br>
+All electrical power used for training and inference stems from renewable energy sources, keeping environmental impact as low as possible.
+</br></br>
 
 <strong>Software information:</strong> </br>
 We use Linux Fedora 43 for Workstation. All code runs in JupyterLab within a conda environment with Python 3.13.3. We use `torch` v2.11.0 with NVIDIA CUDA 12.8. </br>
