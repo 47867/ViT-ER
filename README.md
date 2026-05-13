@@ -56,7 +56,7 @@ SWIN-Base consistently outperforms DeiT-Base, albeit by only a few points.
 </br></br>
 
 <strong>Hardware information:</strong> </br>
-Both models are trained on a single NVIDIA Blackwell GB203 GPU with 16 GiB of VRAM (GDDR7, non-ECC, 28 Gigabit/s over 256bit-bus = 896 GiB/s transfer speed). CPU-side is handled by a 12th Gen. (Alder Lake) Intel Core i5-12600K supported by 64 GiB of DDR4-DRAM (non-ECC) running with JEDEC specification for 3.200 MT/s at CL16-20-20-38 at 1.35V. 
+Both models are trained on a single NVIDIA Blackwell GB203 GPU with 16 GiB of VRAM (GDDR7, non-ECC, 28 Gigabit/s over 256bit-bus = 896 GiB/s transfer speed). The GPU is connected to the system via PCI-Express Gen. 5.0 with 16 lanes. CPU-side is handled by a 12th Gen. (Alder Lake) Intel Core i5-12600K on a motherboard with a Z690 chipset.  Our system has access to 64 GiB of DDR4-DRAM (non-ECC) running with JEDEC specification for 3.200 MT/s at CL16-20-20-38 at 1.35V. We use a 1TB SAMSUNG 870QVO SSD as mass storage wich is connected via SATA-III (SATA-600).
 </br></br>
 
 At batch-size of 64, training takes around 1 hour for DeiT-Base (approx. 7 batches per second) and 1.5 hours for SWIN-Base (approx. 5.2 batches per second). DeiT-Base needs approx. 6.0 GiB of VRAM while SWIN-Base needs approx. 11.4 GiB of VRAM. Training should therefore be possible on a GPU with 12 GiB of VRAM. We still recommend a GPU with at least 16 GiB of VRAM. DRAM usage stays below 10 GiB for both models. Therefore, 16 GiB of DRAM should suffice, but 24 GiB or more are recommended.
