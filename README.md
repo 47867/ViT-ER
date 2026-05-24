@@ -1,7 +1,7 @@
 # ViT-ER
 Visual Transformer for Emotion Recognition (4-class) </br></br>
 
-We introduce two machine learning models for visual emotion recognition. Using the CAER-S dataset by Jiyoung et al. (2019) we predict four emotions: </br>
+We introduce two machine learning models for visual emotion recognition. Using the CAER-S dataset by Lee et al. (2019) we predict four emotions: </br>
 - Optimistic (happy)
 - Pessimistic (sad + fear)
 - Hostile (anger + disgust)
@@ -81,7 +81,8 @@ We publish the following data: </br>
 - Code for model inference
 </br></br>
 
-The model checkpoint (.pth-file) is not published, as it is too large to be uploaded here. If you need the checkpoint, contact the owner of this repository and we will supply you with the file.
+The model checkpoint (.pth-file) is not published, as it is too large to be uploaded here. If you need the checkpoint, contact the owner of this repository and we will supply you with the file. <br>
+We also provide a conversion to the safer .safetensor file format.
 </br></br>
 
 <strong>Licenses:</strong> </br>
@@ -89,4 +90,11 @@ We publish our entire code under a MIT license. Note that this does not include 
 The DeiT-Base-patch16-224 model is distributed under the Apache-2.0 license. A copy of the Apache-2.0 license is distributed with this repository. </br>
 The SWIN-Base-patch4-window7-224 model is also distributed under the Apache-2.0 license. </br>
 The CAER-S dataset is distributed for research purposes only. 
+</br></br>
+
+<strong>References:</strong></br>
+Lee, J., Kim, S., Kim, S., Park, J., & Sohn, K. (2019). Context aware emotion recognition networks. Proceedings of the IEEE/CVF International Conference on Computer Vision. <br>
+Liu, Z., Lin, Y., Cao, Y., Hu, H., Wei, Y., Zhang, Z., Lin, S., & Guo, B. (2021). Swin Transformer: Hierarchical Vision Transformer using Shifted Windows. arXiv. https://doi.org/10.48550/arXiv.2103.14030 <br>
+Touvron, H., Cord, M., Douze, M., Massa, F., Sablayrolles, A., & Jegou, H. (2021). Training data-efficient image transformers & distillation through attention. arXiv. https://doi.org/10.48550/arXiv.2012.12877 <br>
+
 
