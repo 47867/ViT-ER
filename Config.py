@@ -2,7 +2,7 @@ class Config:
 
     #data
     data_csv_train: str = "/home/simon/Documents/Zwischen Wörtern und Pixeln/annotations-caer_cleaned_4cluster.csv"
-    data_csv_adaptation: str = "/home/simon/Documents/Zwischen Wörtern und Pixeln/Sample_Dataset/Reichel/domain_adaptation_coded_stratify.csv"
+    data_csv_adaptation: str = "/home/simon/Documents/Zwischen Wörtern und Pixeln/Sample_Dataset/Reichel/domain_adaptation_coded_weighted.csv"
     image_col: str = "image_path"
     label_col: str = "emotion_recode2"   # 0 = Optimistic; 1 = Pessimistic; 2 = Hostile; 3 = Neutral
     num_classes: int = 4
