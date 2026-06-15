@@ -59,7 +59,7 @@ SWIN-Base consistently outperforms DeiT-Base, albeit by only a few points.
 ## <strong>Domain adaptation</strong> <br>
 We are conducting research on the KLIMAMEMES dataset by Haim et al. (2026). To align our model predictions better with this complicated dataset, we conduct domain adaptation. <br>
 We manually annotate 410 images and conduct training for 80 epochs. For SWIN-Base we reach a Macro-F1 of 0.78 and Cohen's Kappa of 0.71. <br>
-DeiT-Base is significantly weaker. Macro-F1 reaches 0.61 and Cohen's Kappa of 0.45. Improving on these results appears non-trivial.
+DeiT-Base is significantly weaker. Macro-F1 reaches 0.61 and Cohen's Kappa reaches 0.45. Improving on these results appears non-trivial.
 <br><br>
 
 ## <strong>Hardware information</strong> <br>
