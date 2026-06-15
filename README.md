@@ -31,7 +31,7 @@ In our example, training runs for the full 35 epochs. The lowest validation loss
 Both models reach near-state-of-the-art performance with a Macro-F1 value >0.8 and validation accuracy of >0.8. Single class performance is as follows: 
 <br><br>
 
-### <strong>SWIN-Base:</strong>
+### <strong>SWIN-Base</strong>
 | Class        | Precision | Recall | F1    |
 |:-------------|:---------:|:------:|:-----:|
 | Optimistic   | 0.820     | 0.845  | 0.832 |
@@ -42,7 +42,7 @@ Both models reach near-state-of-the-art performance with a Macro-F1 value >0.8 a
 Macro-F1: 0.8291, validation accuracy: 0.8442, validation loss: 0.4292 (after 32 epochs)
 <br><br>
 
-### <strong>DeiT-Base:</strong>
+### <strong>DeiT-Base</strong>
 | Class        | Precision | Recall | F1    |
 |:-------------|:---------:|:------:|:-----:|
 | Optimistic   | 0.795     | 0.810  | 0.802 |
@@ -55,7 +55,7 @@ Macro-F1: 0.8040, validation accuracy: 0.8198, validation loss: 0.4919 (after 32
 SWIN-Base consistently outperforms DeiT-Base, albeit by only a few points. 
 <br><br>
 
-## <strong>Hardware information:</strong> <br>
+## <strong>Hardware information</strong> <br>
 Both models are trained on a single NVIDIA Blackwell GB203 GPU with 16 GiB of VRAM (GDDR7, non-ECC, 28 Gigabit/s over 256bit-bus = 896 GiB/s transfer speed). The GPU is connected to the system via PCI-Express Gen. 5.0 with 16 lanes. CPU-side is handled by a 12th Gen. (Alder Lake) Intel Core i5-12600K on a motherboard with a Z690 chipset.  Our system has access to 64 GiB of DDR4-DRAM (non-ECC) running with JEDEC specification for 3.200 MT/s at CL16-20-20-38 at 1.35V. We use a 1TB SAMSUNG 870QVO SSD as mass storage wich is connected via SATA-III (SATA-600).
 <br><br>
 
@@ -69,12 +69,12 @@ This allows us to perform both training and inference entirely on local hardware
 All electrical power used for training and inference stems from renewable energy sources, keeping environmental impact as low as possible.
 <br><br>
 
-## <strong>Software information:</strong> <br>
+## <strong>Software information</strong> <br>
 We use Linux Fedora 43 for Workstation. All code runs in JupyterLab within a conda environment with Python 3.13.3. We use `torch` v2.11.0 with NVIDIA CUDA 12.8. <br>
 All of the above mentioned software - except NVIDIA CUDA - is open-source and can be downloaded completely free of charge, making it accessible for everyone. 
 <br><br>
 
-## <strong>Publication:</strong><br>
+## <strong>Publication</strong><br>
 We publish the following data: <br>
 - Code for CAER-S dataset pre-processing
 - Code for both DeiT-Base and SWIN-Base model for transfer learning
@@ -88,10 +88,10 @@ We publish the following data: <br>
 <br><br>
 
 The model checkpoint is not published, as it is too large to be uploaded here. If you need the checkpoint, contact the owner of this repository and we will supply you with the file. <br>
-Both the original CAER-S trained checkpoints as well as the domain-adapted checkpoints are available in the .safetensor file format. We recommend using .safetensor over.pth as the latter can be a security risk.
+Both the original CAER-S trained checkpoints as well as the domain-adapted checkpoints are available in the .safetensor file format. We recommend using .safetensor over .pth as the latter can be a security risk.
 <br><br>
 
-## <strong>Licenses:</strong> <br>
+## <strong>Licenses</strong> <br>
 We publish our entire code under a MIT license. Note that this does not include any models or datasets. A copy of the license is distributed with the repository. <br>
 The DeiT-Base-patch16-224 model is distributed under the Apache-2.0 license. A copy of the Apache-2.0 license is distributed with this repository. <br>
 The SWIN-Base-patch4-window7-224 model is also distributed under the Apache-2.0 license. <br>
