@@ -76,13 +76,19 @@ All of the above mentioned software - except NVIDIA CUDA - is open-source and ca
 
 <strong>Publication:</strong></br>
 We publish the following data: </br>
-- Training code for both DeiT-Base and SWIN-Base model for transfer learning
-- Pre-processing code for the CAER-S dataset
+- Code for CAER-S dataset pre-processing
+- Code for both DeiT-Base and SWIN-Base model for transfer learning
+- Code for checkpoint conversion from .pth to .safetensor
+- Code for the selection of the dataset (images with human faces only)
+- Code for model domain adaptation pre-processing
+- Code for model domain adaptation training
 - Code for model inference
+- Domain adaptation annotations and sample weights
+- Inference results
 </br></br>
 
-The model checkpoint (.pth-file) is not published, as it is too large to be uploaded here. If you need the checkpoint, contact the owner of this repository and we will supply you with the file. <br>
-We also provide a conversion to the safer .safetensor file format.
+The model checkpoint is not published, as it is too large to be uploaded here. If you need the checkpoint, contact the owner of this repository and we will supply you with the file. <br>
+Both the original CAER-S trained checkpoints as well as the domain-adapted checkpoints are available in the .safetensor file format. We recommend using .safetensor over.pth as the latter can be a security risk.
 </br></br>
 
 <strong>Licenses:</strong> </br>
