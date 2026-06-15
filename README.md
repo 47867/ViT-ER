@@ -1,6 +1,7 @@
 # ViT-ER
 Visual Transformer for Emotion Recognition (4-class) <br><br>
 
+## <strong>Introduction</strong> <br>
 We introduce two machine learning models for visual emotion recognition. Using the CAER-S dataset by Lee et al. (2019) we predict four emotions: <br>
 - Optimistic (happy)
 - Pessimistic (sad + fear)
@@ -22,13 +23,14 @@ By using a mixed-precision approach, we can reduce compute cost while at the sam
 Weights for the Random Sampler are computed at FP64 precision. All model weights are stored in FP32 precision. Gradient scaling as well as optimizer steps are also conducted with FP32 precision. Only forward passing and loss computation run in the lower FP16 precision to reduce compute cost. 
 <br><br>
 
+## <strong>Transfer learning</strong> <br>
 Training is conducted for 35 epochs using a sophisticated multi-phase setup. <br>
 We first freeze the backbone and train only the head for three epochs. Afterwards, we enable Mix-Up for two epochs. After five epochs, the backbone is unfrozen. Mix-up is disabled for the frist unfrozen epoch and gets enabled afterwards for all remaining epochs. <br>
 After each epoch, validation loss is computed. A new checkpoint is saved when the validation loss reaches a new minimum. Should there be no improvement on the validation loss for seven epochs, training is stopped early. <br>
 In our example, training runs for the full 35 epochs. The lowest validation loss is reached after 32 epochs.
 <br><br>
 
-Both models reach near-state-of-the-art performance with a Macro-F1 value >0.8 and validation accuracy of >0.8. Single class performance is as follows: 
+Both models reach near-state-of-the-art performance with a Macro-F1 value >0.8 and validation accuracy of >0.8 on validation data. Single class performance is as follows: 
 <br><br>
 
 ### <strong>SWIN-Base</strong>
@@ -53,6 +55,11 @@ Macro-F1: 0.8291, validation accuracy: 0.8442, validation loss: 0.4292 (after 32
 Macro-F1: 0.8040, validation accuracy: 0.8198, validation loss: 0.4919 (after 32 epochs)
 <br><br>
 SWIN-Base consistently outperforms DeiT-Base, albeit by only a few points. 
+<br><br>
+## <strong>Domain adaptation</strong> <br>
+We are conducting research on the KLIMAMEMES dataset by Haim et al. (2026). To align our model predictions better with this complicated dataset, we conduct domain adaptation. <br>
+We manually annotate 410 images and conduct training for 80 epochs. For SWIN-Base we reach a Macro-F1 of 0.78 and Cohen's Kappa of 0.71. <br>
+DeiT-Base is significantly weaker. Macro-F1 reaches 0.61 and Cohen's Kappa of 0.45. Improving on these results appears non-trivial.
 <br><br>
 
 ## <strong>Hardware information</strong> <br>
@@ -98,7 +105,8 @@ The SWIN-Base-patch4-window7-224 model is also distributed under the Apache-2.0 
 The CAER-S dataset is distributed for research purposes only. 
 <br><br>
 
-## <strong>References:</strong><br>
+## <strong>References</strong><br>
+Haim, M., Haßler, J., Lübke, S., Ozornina, N., Stengl, L., Geigl, M., Plank, B., Peng, S. L., Zhou, S., Ommer, B., Schusterbauer, J., Grabe, M. E., & Mohammad, S. (2026). KLIMAMEMES dataset. https://klimamemes.ifkw.lmu.de/index.php/about-the-project/. <br>
 Lee, J., Kim, S., Kim, S., Park, J., & Sohn, K. (2019). Context aware emotion recognition networks. Proceedings of the IEEE/CVF International Conference on Computer Vision. <br>
 Liu, Z., Lin, Y., Cao, Y., Hu, H., Wei, Y., Zhang, Z., Lin, S., & Guo, B. (2021). Swin Transformer: Hierarchical Vision Transformer using Shifted Windows. arXiv. https://doi.org/10.48550/arXiv.2103.14030 <br>
 Touvron, H., Cord, M., Douze, M., Massa, F., Sablayrolles, A., & Jegou, H. (2021). Training data-efficient image transformers & distillation through attention. arXiv. https://doi.org/10.48550/arXiv.2012.12877 <br>
