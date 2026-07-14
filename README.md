@@ -58,15 +58,18 @@ SWIN-Base consistently outperforms DeiT-Base, albeit by only a few points.
 <br><br>
 ## <strong>Domain adaptation</strong> <br>
 We are conducting research on the KLIMAMEMES dataset by Haim et al. (2026). To align our model predictions better with this complicated dataset, we conduct domain adaptation. <br>
-We manually annotate 410 images and conduct training for 80 epochs. For SWIN-Base we reach a Macro-F1 of 0.78 and Cohen's Kappa of 0.71. <br>
-DeiT-Base is significantly weaker. Macro-F1 reaches 0.61 and Cohen's Kappa reaches 0.45. Improving on these results appears non-trivial.
+We manually annotate 410 images and conduct training for 80 epochs. For SWIN-Base we reach a Macro-F1 of 0.76 and Cohen's Kappa of 0.67. <br>
+DeiT-Base is significantly weaker. Macro-F1 reaches 0.60 and Cohen's Kappa reaches 0.45. Improving on these results appears non-trivial.
 <br><br>
 
 ## <strong>Hardware information</strong> <br>
-Both models are trained on a single NVIDIA Blackwell GB203 GPU with 16 GiB of VRAM (GDDR7, non-ECC, 28 Gigabit/s over 256bit-bus = 896 GiB/s transfer speed). The GPU is connected to the system via PCI-Express Gen. 5.0 with 16 lanes. CPU-side is handled by a 12th Gen. (Alder Lake) Intel Core i5-12600K on a motherboard with a Z690 chipset.  Our system has access to 64 GiB of DDR4-DRAM (non-ECC) running with JEDEC specification for 3.200 MT/s at CL16-20-20-38 at 1.35V. We use a 1TB SAMSUNG 870QVO SSD as mass storage wich is connected via SATA-III (SATA-600).
+Both models are trained on a single NVIDIA Blackwell GB203 GPU with 16 GB of VRAM (GDDR7, non-ECC, 28 Gigabit/s over 256bit-bus = 896 GiB/s transfer speed). The GPU is connected to the system via PCI-Express Gen. 5.0 with 16 lanes. CPU-side is handled by a 12th Gen. (Alder Lake) Intel Core i5-12600K on a motherboard with a Z690 chipset.  Our system has access to 64 GB of DDR4-DRAM (non-ECC) running with JEDEC specification for 3.200 MT/s at CL16-20-20-38 at 1.35V. We use a 1TB (~ 928.2 GiB) SAMSUNG 870QVO SSD as mass storage wich is connected via SATA-III (SATA-600).
 <br><br>
 
 At batch-size of 64, training takes around 1 hour for DeiT-Base (approx. 7 batches per second) and 1.5 hours for SWIN-Base (approx. 5.2 batches per second). DeiT-Base needs approx. 6.0 GiB of VRAM while SWIN-Base needs approx. 11.4 GiB of VRAM. Training should therefore be possible on a GPU with 12 GiB of VRAM. We still recommend a GPU with at least 16 GiB of VRAM. DRAM usage stays below 10 GiB for both models. Therefore, 16 GiB of DRAM should suffice, but 24 GiB or more are recommended.
+<br><br>
+
+At batch-size of 64 our Blackwell GB203 accelerator inferences around 400 images per second with single-precision (FP32) or around 800 images per second with half precision (BF16).
 <br><br>
 
 Our hardware setup shows that this task can be completed on mid-range consumer hardware, making it more accessible to researchers with a smaller budget and no access to datacenter-class hardware. 
