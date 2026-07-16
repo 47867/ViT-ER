@@ -1,6 +1,12 @@
 # ViT-ER
 Visual Transformer for Emotion Recognition (4-class) <br><br>
 
+<strong>Model checkpoints now available as .safetensors files over on Huggingface:</strong> <br>
+SWIN-Base: https://huggingface.co/Simon14142/VIT-ER_SWIN <br>
+DeiT-Base: https://huggingface.co/Simon14142/VIT-ER_DeiT <br>
+<br>
+Simplified inference script also available on Huggingface. <br>
+
 ## <strong>Introduction</strong> <br>
 We introduce two machine learning models for visual emotion recognition. Using the CAER-S dataset by Lee et al. (2019) we predict four emotions: <br>
 - Optimistic (happy)
@@ -97,7 +103,7 @@ We publish the following data: <br>
 - Inference results
 <br><br>
 
-The model checkpoint is not published, as it is too large to be uploaded here. If you need the checkpoint, contact the owner of this repository and we will supply you with the file. <br>
+The model checkpoints are not published here, as they are too large to be uploaded here. But you can get them on Huggingface (see URL's at the start of ReadMe). <br>
 Both the original CAER-S trained checkpoints as well as the domain-adapted checkpoints are available in the .safetensor file format. We recommend using .safetensor over .pth as the latter can be a security risk.
 <br><br>
 
