@@ -2,8 +2,8 @@
 Visual Transformer for Emotion Recognition (4-class) <br><br>
 
 <strong>Model checkpoints now available as .safetensors files over on Huggingface:</strong> <br>
-SWIN-Base: https://huggingface.co/Simon14142/VIT-ER_SWIN <br>
-DeiT-Base: https://huggingface.co/Simon14142/VIT-ER_DeiT <br>
+SWIN-Base: [https://huggingface.co/Simon14142/VIT-ER_SWIN ](https://huggingface.co/Simon14142/emotion-recognition-4class-swin) <br>
+DeiT-Base: [https://huggingface.co/Simon14142/VIT-ER_DeiT ](https://huggingface.co/Simon14142/emotion-recognition-4class-deit)<br>
 <br>
 Simplified inference script also available on Huggingface. <br>
 
