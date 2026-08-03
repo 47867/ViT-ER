@@ -4,7 +4,7 @@ Vision transformer for Emotion Recognition (4-class) <br>
 
 ## <strong>Announcements</strong> <br>
 
-Our paper is now available in this repositary as a .pdf file. <br>
+Our paper is now available in this repository as a .pdf file. <br>
 
 <strong>Model checkpoints now available as .safetensors files over on Huggingface:</strong> <br>
 SWIN-Base: [https://huggingface.co/Simon14142/VIT-ER_SWIN ](https://huggingface.co/Simon14142/emotion-recognition-4class-swin) <br>
