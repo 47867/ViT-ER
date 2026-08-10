@@ -19,22 +19,23 @@ class Config:
         "Neutral": 3}
 
     #model
-    model_name: str   = "swin_base_patch4_window7_224"
-    pretrained: bool  = True
-    drop_rate: float  = 0.3    #dropout before the classifier head
+    model_name: str = "swin_base_patch4_window7_224" #choose desired model. for domain adaptation also choose layers to unfreeze below
+    #model_name: str = "deit_base_patch16_224"
+    pretrained: bool = True
+    drop_rate: float = 0.3    #dropout before the classifier head
     drop_path_rate: float = 0.1    #stochastic depth, enabled at Phase 2b only
     batch_size_main: int = 64
 
     #main training phases
-    #Main: Phase 1  : backbone frozen, head only, no MixUp
+    #main: phase 1  : backbone frozen, head only, no MixUp
     epochs_frozen: int   = 3
     lr_head: float  = 1e-4
 
-    #Main: Phase 2a : backbone still frozen, MixUp enabled, head consolidates
+    #main: phase 2a : backbone still frozen, MixUp enabled, head consolidates
     epochs_head: int   = 2
     lr_head_warmup: float  = 5e-5   #slightly lower than Phase 1 for stability
 
-    #Main: Phase 2b : full fine-tune, conservative backbone LR
+    #main: phase 2b : full fine-tune, conservative backbone LR
     epochs_finetune: int   = 30     #early stopping might cut this
     lr_backbone: float  = 5e-6
     lr_head_ft: float  = 2e-5
@@ -43,8 +44,8 @@ class Config:
     grad_clip: float  = 1.0
 
     #MixUp
-    #Disabled in Main Phase 1 and first epoch of Main Phase 2b.
-    #Enabled in Main Phase 2a onward.
+    #disabled in Main Phase 1 and first epoch of Main Phase 2b.
+    #enabled in Main Phase 2a onward.
     mixup_alpha: float = 0.2
 
     #early stopping
@@ -55,7 +56,7 @@ class Config:
 
     #system
     num_workers: int = 8
-    device: str = "cuda" #gpu
+    device: str = "cuda" #NVIDIA Blackwell GB203 accelerator
 
     #domain adaptation
     stage: int = 2 #change according to desired adaptation
@@ -68,18 +69,21 @@ class Config:
         "unfreeze_layers": [],
         "min_images": 150},
 
-    2: {"description": "Head + layers.3 unfrozen",
+    2: {"description": "Head + last layers unfrozen",
         "lr_head": 5e-5,
         "lr_backbone": 5e-6, #keep small to avoid overfitting
         "epochs": 80,
         "patience": 15, #be patient
+
+        #layers.3 are for SWIN-Base and blocks.x are for DeiT-Base. choose together with model
         "unfreeze_layers": ["layers.3"], #can add layers.2 for more params, but model might overfit
+        #"unfreeze_layers": ["blocks.7", "blocks.8", "blocks.9", "blocks.10", "blocks.11"],
         "min_images": 300}}
     batch_size_adaptation: int = 16 #keep small
     num_workers_adaptation: int = 4
     weight_decay_adaptation: float = 1e-3
     label_smoothing_adaptation: float = 0.00 #set to zero for now
-    mixup_alpha_adaptation: float = 0.125 #best performance
+    mixup_alpha_adaptation: float = 0.125 #best performance, empirically tested
 
 
 #now we can import Config as cfg
